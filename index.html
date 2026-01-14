@@ -62,12 +62,11 @@
         }
 
         .verb-display {
-            /* El display ahora incluye el sujeto, por eso es un poco más pequeño */
-            font-size: 3em; 
+            font-size: 3.5em; /* Aumentado ligeramente ya que no hay sujeto */
             font-weight: 900;
             color: #ea4335;
             margin: 15px 0 30px 0;
-            text-transform: none; /* Dejamos la capitalización al sujeto */
+            text-transform: none;
         }
 
         /* Controles de Selección */
@@ -333,67 +332,64 @@
     </div>
 
     <script>
-        // Array de objetos con los verbos y sus respuestas
         const verbos = [
-            { v: "Amo", f: "simple", p: "1ª persona", n: "singular" },
-            { v: "Corres", f: "simple", p: "2ª persona", n: "singular" },
-            { v: "Vive", f: "simple", p: "3ª persona", n: "singular" },
-            { v: "Cantamos", f: "simple", p: "1ª persona", n: "plural" },
-            { v: "Leéis", f: "simple", p: "2ª persona", n: "plural" },
-            { v: "Comen", f: "simple", p: "3ª persona", n: "plural" },
-            { v: "He hablado", f: "compuesto", p: "1ª persona", n: "singular" },
-            { v: "Has venido", f: "compuesto", p: "2ª persona", n: "singular" },
-            { v: "Ha salido", f: "compuesto", p: "3ª persona", n: "singular" },
-            { v: "Hemos visto", f: "compuesto", p: "1ª persona", n: "plural" },
-            { v: "Habéis dicho", f: "compuesto", p: "2ª persona", n: "plural" },
-            { v: "Han llegado", f: "compuesto", p: "3ª persona", n: "plural" },
-            { v: "Hablaba", f: "simple", p: "1ª persona", n: "singular" },
-            { v: "Caminabas", f: "simple", p: "2ª persona", n: "singular" },
-            { v: "Dormía", f: "simple", p: "3ª persona", n: "singular" },
-            { v: "Corríamos", f: "simple", p: "1ª persona", n: "plural" },
-            { v: "Vivíais", f: "simple", p: "2ª persona", n: "plural" },
-            { v: "Sabían", f: "simple", p: "2ª persona", n: "plural" },
-            { v: "Hube comido", f: "compuesto", p: "1ª persona", n: "singular" },
-            { v: "Hubiste tomado", f: "compuesto", p: "2ª persona", n: "singular" },
-            { v: "Hubo llegado", f: "compuesto", p: "3ª persona", n: "singular" },
-            { v: "Hubimos visto", f: "compuesto", p: "1ª persona", n: "plural" },
-            { v: "Hubisteis hablado", f: "compuesto", p: "2ª persona", n: "plural" },
-            { v: "Hubieron dicho", f: "compuesto", p: "3ª persona", n: "plural" },
-            { v: "Comería", f: "simple", p: "1ª persona", n: "singular" },
-            { v: "Vivirías", f: "simple", p: "2ª persona", n: "singular" },
-            { v: "Cantaría", f: "simple", p: "3ª persona", n: "singular" },
-            { v: "Beberíamos", f: "simple", p: "1ª persona", n: "plural" },
-            { v: "Sabríais", f: "simple", p: "2ª persona", n: "plural" },
-            { v: "Irían", f: "simple", p: "3ª persona", n: "plural" },
-            { v: "Habría hecho", f: "compuesto", p: "1ª persona", n: "singular" },
-            { v: "Habrías dicho", f: "compuesto", p: "2ª persona", n: "singular" },
-            { v: "Habría venido", f: "compuesto", p: "3ª persona", n: "singular" },
-            { v: "Habríamos visto", f: "compuesto", p: "1ª persona", n: "plural" },
-            { v: "Habríais salido", f: "compuesto", p: "2ª persona", n: "plural" },
-            { v: "Habrían llegado", f: "compuesto", p: "3ª persona", n: "plural" },
-            { v: "Correré", f: "simple", p: "1ª persona", n: "singular" },
-            { v: "Leerás", f: "simple", p: "2ª persona", n: "singular" },
-            { v: "Vivirán", f: "simple", p: "3ª persona", n: "plural" },
-            { v: "Hablaremos", f: "simple", p: "1ª persona", n: "plural" },
-            { v: "Diréis", f: "simple", p: "2ª persona", n: "plural" },
-            { v: "Tomará", f: "simple", p: "3ª persona", n: "singular" },
-            { v: "Habré escrito", f: "compuesto", p: "1ª persona", n: "singular" },
-            { v: "Habrás llegado", f: "compuesto", p: "2ª persona", n: "singular" },
-            { v: "Habrá salido", f: "compuesto", p: "3ª persona", n: "singular" },
-            { v: "Habremos cantado", f: "compuesto", p: "1ª persona", n: "plural" },
-            { v: "Habréis vivido", f: "compuesto", p: "2ª persona", n: "plural" },
-            { v: "Habrán comido", f: "compuesto", p: "3ª persona", n: "plural" },
-            { v: "Duerme", f: "simple", p: "3ª persona", n: "singular" },
-            { v: "Venid", f: "simple", p: "2ª persona", n: "plural" }
+            { v: "Yo amo", f: "simple", p: "1ª persona", n: "singular" },
+            { v: "Tú corres", f: "simple", p: "2ª persona", n: "singular" },
+            { v: "Él vive", f: "simple", p: "3ª persona", n: "singular" },
+            { v: "Nosotros cantamos", f: "simple", p: "1ª persona", n: "plural" },
+            { v: "Vosotros leéis", f: "simple", p: "2ª persona", n: "plural" },
+            { v: "Ellos comen", f: "simple", p: "3ª persona", n: "plural" },
+            { v: "Yo he hablado", f: "compuesto", p: "1ª persona", n: "singular" },
+            { v: "Tu has venido", f: "compuesto", p: "2ª persona", n: "singular" },
+            { v: "El ha salido", f: "compuesto", p: "3ª persona", n: "singular" },
+            { v: "Nosotas hemos visto", f: "compuesto", p: "1ª persona", n: "plural" },
+            { v: "Vosotras habéis dicho", f: "compuesto", p: "2ª persona", n: "plural" },
+            { v: "Ellos han llegado", f: "compuesto", p: "3ª persona", n: "plural" },
+            { v: "Yo hablaba", f: "simple", p: "1ª persona", n: "singular" },
+            { v: "Tú caminabas", f: "simple", p: "2ª persona", n: "singular" },
+            { v: "Él dormía", f: "simple", p: "3ª persona", n: "singular" },
+            { v: "Nosotros corríamos", f: "simple", p: "1ª persona", n: "plural" },
+            { v: "Vosotros vivíais", f: "simple", p: "2ª persona", n: "plural" },
+            { v: "Ellas sabían", f: "simple", p: "3ª persona", n: "plural" },
+            { v: "Yo hube comido", f: "compuesto", p: "1ª persona", n: "singular" },
+            { v: "Tú hubiste tomado", f: "compuesto", p: "2ª persona", n: "singular" },
+            { v: "Ella hubo llegado", f: "compuesto", p: "3ª persona", n: "singular" },
+            { v: "Nosotros hubimos visto", f: "compuesto", p: "1ª persona", n: "plural" },
+            { v: "Vosotros hubisteis hablado", f: "compuesto", p: "2ª persona", n: "plural" },
+            { v: "Ellos hubieron dicho", f: "compuesto", p: "3ª persona", n: "plural" },
+            { v: "Yo comería", f: "simple", p: "1ª persona", n: "singular" },
+            { v: "Tú vivirías", f: "simple", p: "2ª persona", n: "singular" },
+            { v: "Él antaría", f: "simple", p: "3ª persona", n: "singular" },
+            { v: "Nosotros beberíamos", f: "simple", p: "1ª persona", n: "plural" },
+            { v: "Vosotros sabríais", f: "simple", p: "2ª persona", n: "plural" },
+            { v: "Ellas irían", f: "simple", p: "3ª persona", n: "plural" },
+            { v: "Yo habría hecho", f: "compuesto", p: "1ª persona", n: "singular" },
+            { v: "Tú habrías dicho", f: "compuesto", p: "2ª persona", n: "singular" },
+            { v: "Él habría venido", f: "compuesto", p: "3ª persona", n: "singular" },
+            { v: "Nosotras habríamos visto", f: "compuesto", p: "1ª persona", n: "plural" },
+            { v: "Vosotras habríais salido", f: "compuesto", p: "2ª persona", n: "plural" },
+            { v: "Ellas habrían llegado", f: "compuesto", p: "3ª persona", n: "plural" },
+            { v: "Yo correré", f: "simple", p: "1ª persona", n: "singular" },
+            { v: "Tú leerás", f: "simple", p: "2ª persona", n: "singular" },
+            { v: "Ellas vivirán", f: "simple", p: "3ª persona", n: "plural" },
+            { v: "Nosotros hablaremos", f: "simple", p: "1ª persona", n: "plural" },
+            { v: "Vosotros diréis", f: "simple", p: "2ª persona", n: "plural" },
+            { v: "Él tomará", f: "simple", p: "3ª persona", n: "singular" },
+            { v: "Yo habré escrito", f: "compuesto", p: "1ª persona", n: "singular" },
+            { v: "Tú habrás llegado", f: "compuesto", p: "2ª persona", n: "singular" },
+            { v: "Ella habrá salido", f: "compuesto", p: "3ª persona", n: "singular" },
+            { v: "Nosotras habremos cantado", f: "compuesto", p: "1ª persona", n: "plural" },
+            { v: "Vosotras habréis vivido", f: "compuesto", p: "2ª persona", n: "plural" },
+            { v: "Ellos habrán comido", f: "compuesto", p: "3ª persona", n: "plural" },
+            { v: "Él duerme", f: "simple", p: "3ª persona", n: "singular" },
+            { v: "Vosotros, venid", f: "simple", p: "2ª persona", n: "plural" }
         ];
 
-        // Variables de estado del juego
         let score = 0;
         let currentQuestionIndex = 0;
         const totalQuestions = verbos.length;
         let randomizedVerbos = [];
 
-        // Elementos del DOM
         const scoreEl = document.getElementById('score');
         const questionNumEl = document.getElementById('questionNum');
         const currentVerbEl = document.getElementById('currentVerb');
@@ -404,7 +400,6 @@
         const checkButton = document.getElementById('checkButton');
         const continueButton = document.getElementById('continueButton'); 
 
-        // Función para mezclar el array (algoritmo Fisher-Yates)
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -412,44 +407,19 @@
             }
         }
 
-        // NUEVA FUNCIÓN: Genera un sujeto adecuado para la persona y número
+        // FUNCIÓN MODIFICADA: Ahora no devuelve ningún sujeto
         function getSubject(person, number) {
-            const subjects3rdSingular = ['Él', 'Ella', 'Usted', 'El estudiante', 'La profesora', 'Mi amigo'];
-            const subjects3rdPlural = ['Ellos', 'Ellas', 'Ustedes', 'Los alumnos', 'Mis padres'];
-
-            switch (`${person}-${number}`) {
-                case '1ª persona-singular':
-                    return 'Yo';
-                case '2ª persona-singular':
-                    return 'Tú';
-                case '3ª persona-singular':
-                    // Alterna aleatoriamente entre los sujetos de 3ª singular
-                    return subjects3rdSingular[Math.floor(Math.random() * subjects3rdSingular.length)];
-                case '1ª persona-plural':
-                    // 50% de probabilidad de usar el femenino
-                    return Math.random() < 0.5 ? 'Nosotros' : 'Nosotras';
-                case '2ª persona-plural':
-                    // 50% de probabilidad de usar el femenino (típico de España)
-                    return Math.random() < 0.5 ? 'Vosotros' : 'Vosotras';
-                case '3ª persona-plural':
-                    // Alterna aleatoriamente entre los sujetos de 3ª plural
-                    return subjects3rdPlural[Math.floor(Math.random() * subjects3rdPlural.length)];
-                default:
-                    return '';
-            }
+            return ''; 
         }
 
-        // Inicializa el juego
         function initGame() {
             randomizedVerbos = [...verbos]; 
             shuffleArray(randomizedVerbos);
-            
             score = 0;
             currentQuestionIndex = 0;
             updateUI();
         }
 
-        // Actualiza la interfaz con la pregunta actual
         function updateUI() {
             if (currentQuestionIndex >= totalQuestions) {
                 showCongratulationsModal();
@@ -457,15 +427,13 @@
             }
 
             const current = randomizedVerbos[currentQuestionIndex];
-            const subject = getSubject(current.p, current.n);
             
-            // Muestra el sujeto + el verbo
-            currentVerbEl.textContent = subject + ' ' + current.v;
+            // Muestra solo el verbo
+            currentVerbEl.textContent = current.v;
             
             questionNumEl.textContent = currentQuestionIndex + 1;
             scoreEl.textContent = score;
 
-            // Resetear selecciones, feedback y botones
             formaSelect.value = "";
             personaSelect.value = "";
             numeroSelect.value = "";
@@ -476,14 +444,11 @@
             continueButton.style.display = 'none'; 
         }
 
-        // Función para avanzar a la siguiente pregunta sin ganar punto (usado tras fallo)
         function continueToNextQuestion() {
             currentQuestionIndex++;
             updateUI();
         }
 
-
-        // Comprueba la respuesta del alumno
         function checkAnswer() {
             if (currentQuestionIndex >= totalQuestions) return;
 
@@ -505,9 +470,8 @@
             );
 
             if (isCorrect) {
-                // Respuesta Correcta: Gana un punto y pasa a la siguiente
                 score++;
-                feedbackEl.textContent = "✅ ¡Respuesta Correcta! ¡Sigue así! (+1 Punto)";
+                feedbackEl.textContent = "✅ ¡Respuesta Correcta! (+1 Punto)";
                 feedbackEl.className = "correct";
                 
                 setTimeout(() => {
@@ -516,12 +480,10 @@
                 }, 800);
 
             } else {
-                // Respuesta Incorrecta: Muestra la respuesta correcta y permite Corregir y Continuar
-                const correctResponse = `❌ Incorrecto. La respuesta correcta es: **Forma: ${correct.f}**, **Persona: ${correct.p}**, **Número: ${correct.n}**. Debes corregir para continuar (sin punto).`;
+                const correctResponse = `❌ Incorrecto. La respuesta es: **Forma: ${correct.f}**, **Persona: ${correct.p}**, **Número: ${correct.n}**.`;
                 feedbackEl.innerHTML = correctResponse;
                 feedbackEl.className = "incorrect";
                 
-                // Deshabilita el botón de comprobación y muestra el botón de continuar
                 checkButton.style.display = 'none';
                 continueButton.style.display = 'block';
             }
@@ -529,70 +491,38 @@
             scoreEl.textContent = score;
         }
 
-        // --- Funciones del Modal y Trampa ---
-        
         function showCongratulationsModal() {
             document.getElementById('finalScore').textContent = score;
             const modal = document.getElementById('congratulationsModal');
-            
-            if (score === totalQuestions) {
-                document.getElementById('finalMessage').style.display = 'block';
-                document.getElementById('trophyMessage').style.display = 'none';
-                modal.style.display = 'block';
-            } else {
-                document.getElementById('finalMessage').innerHTML = `
-                    <h2>¡Ejercicio Finalizado!</h2>
-                    <p>Has terminado con **${score}** puntos de **${totalQuestions}**.</p>
-                    <p>¡Sigue practicando para alcanzar el 50/50!</p>
-                    <button onclick="window.location.reload()">Empezar de Nuevo</button>
-                `;
-                document.getElementById('finalMessage').style.display = 'block';
-                document.getElementById('trophyMessage').style.display = 'none';
-                modal.style.display = 'block';
-            }
+            document.getElementById('finalMessage').style.display = 'block';
+            modal.style.display = 'block';
             checkButton.disabled = true;
         }
 
         function showTrophyMessage() {
-            const playerName = document.getElementById('playerName').value.trim() || 'Campeón Desconocido';
-            
-            if (score !== totalQuestions) return;
-
+            const playerName = document.getElementById('playerName').value.trim() || 'Campeón';
             const secretNumber = Math.floor(10000 + Math.random() * 90000);
-
             document.getElementById('trophyName').textContent = playerName;
             document.getElementById('secretCode').textContent = secretNumber;
-
             document.getElementById('finalMessage').style.display = 'none';
             document.getElementById('trophyMessage').style.display = 'block';
         }
 
         function applyCheatCode() {
             const codeInput = document.getElementById('cheatCodeInput').value;
-            const cheatCode = "30041996";
-
-            if (codeInput === cheatCode) {
+            if (codeInput === "30041996") {
                 score = 49;
                 currentQuestionIndex = 49;
-                
-                if (randomizedVerbos.length === 0) {
-                    randomizedVerbos = [...verbos];
-                    shuffleArray(randomizedVerbos);
-                }
-
                 updateUI();
-                
                 document.getElementById('cheatCodeInput').disabled = true;
-                document.getElementById('cheatCodeInput').placeholder = "ACTIVO";
-                feedbackEl.textContent = "⚡ Código Secreto: ¡Adelantado a la Pregunta 50 con 49 puntos!";
-                feedbackEl.className = "correct";
             }
         }
 
-        // Inicia el juego al cargar la página
         window.onload = initGame;
     </script>
 
 </body>
+</html>
 
 </html>
+
